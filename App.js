@@ -1,18 +1,31 @@
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
-import { Button, Image, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
-import { Styles } from './styles/Styles';
-
+import { Button, Image, Pressable, SafeAreaView, ScrollView, StyleSheet, Switch, Text, TextInput, View } from 'react-native';
+import { Styles, SpecialStyles } from './styles/Styles';
+import Constants from 'expo-constants';
 
 export default function App() {
 
+  const [on, setOn] = useState(false);
+
+  const text = on ? "Button is on" : "Button is off";
+
   return (
-    <View style={Styles.container}>
-      <Text style={Styles.text}>First</Text>
-      <Text style={[Styles.text, {flex: 4}]}>Second</Text>
-    </View>
+      <SafeAreaView style={Styles.container}>
+        <Text>{text}</Text>
+        <Switch
+          value={on}
+          onValueChange={() => setOn(!on) }
+          thumbColor={Styles.mySwitchButtonColor}
+          trackColor={Styles.myTrackColors}
+          style={{transform: [{scale: 1.2}]}}
+        />
+      </SafeAreaView>
+    
   );
 }
+
+
 
 
 
