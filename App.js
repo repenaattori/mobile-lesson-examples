@@ -6,19 +6,20 @@ import Constants from 'expo-constants';
 import NumericInput from 'react-native-numeric-input';
 import { RadioButton } from 'react-native-paper';
 import SelectDropdown from 'react-native-select-dropdown';
-
-let namelist = ["Reima", "Lisa", "Matt"];
+import DATA from './Data';
+import { MaterialCommunityIcons, AntDesign } from '@expo/vector-icons';
 
 export default function App() {
 
-  const [names, setNames] = useState([...namelist, ...namelist, ...namelist]);
+  const [persons, setPersons] = useState(DATA);
 
   return (
       <SafeAreaView style={Styles.container}>
-        <FlatList
-          data={names}
-          renderItem={ Item }
-        />
+          <AntDesign name="pausecircle" size={60} color="red" onPress={()=>console.log("hello")}/>
+          <FlatList
+            data={persons}
+            renderItem={ ({item}) => <Item  item={item}/> }
+          />
       </SafeAreaView>
   );
 }
@@ -26,7 +27,7 @@ export default function App() {
 
 function Item({item}){
   return(
-    <Text style={{padding: 50, borderWidth:1, margin: 5}}>{item}</Text> 
+    <Text style={{padding: 50, borderWidth:1, margin: 5}}>{item.fname} {item.lname}</Text> 
   );
 }
 
