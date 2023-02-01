@@ -4,21 +4,10 @@ import  Constants from "expo-constants";
 const Styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: 'yellow',
-      marginTop: Constants.statusBarHeight
+      marginTop: Constants.statusBarHeight,
+      margin: 20,
     },
-    text:{
-      backgroundColor: '#ebac0e',
-      borderWidth: 1,
-      borderRadius: 5,
-      width: 200,
-      height: 100
-    },
-    mySwitchButtonColor: '#0593ff',
-    myTrackColors: {
-      false: 'white', 
-      true: 'brown'
-    }
+
 });
 
 const SpecialStyles = StyleSheet.create({
